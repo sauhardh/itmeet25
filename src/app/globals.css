@@ -9,6 +9,8 @@
   --color-blue: #369fff;
   --font-rubik: var(--rubik);
   --font-rubik-mono: var(--rubik-mono-one);
+
+  /*  Default */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
