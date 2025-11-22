@@ -1,9 +1,74 @@
-import { Button } from "../ui/button";
+"use client";
+
+import { useState } from "react";
+import { registerEmail } from "@/actions/registerEmail";
 
 export default function Interested() {
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [errorMsg, setErrorMsg] = useState("");
+
+  async function handleSubmit(formData: FormData) {
+    setStatus("loading");
+    setErrorMsg("");
+
+    try {
+      await registerEmail(formData);
+      setEmail("");
+      setStatus("success");
+    } catch (err: any) {
+      setStatus("error");
+      setErrorMsg(err.message || "Something went wrong");
+    }
+  }
+
   return (
-    <div>
-      <Button size="lg">Interested</Button>
+    <div className="w-full px-4 py-8 m-4">
+      <div className="relative w-full max-w-6xl mx-auto rounded-2xl p-[1px] bg-gradient-to-br from-green to-blue">
+
+        <form
+          action={handleSubmit}
+          className="w-full rounded-2xl bg-black px-6 py-12 md:px-12 md:py-16 flex flex-col md:flex-row items-center justify-between gap-10"
+        >
+          <div className="flex flex-col gap-4 max-w-2xl text-center md:text-left">
+            <h2 className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green to-blue">
+              Intrested for IT-Meet-2025?
+            </h2>
+            <p className="text-gray-300 text-lg leading-relaxed">
+              Enter your email to get exclusive news and announcements
+              regarding the annual It Meet.
+            </p>
+          </div>
+
+          <div className="flex flex-col gap-4 w-full md:w-auto min-w-[300px]">
+
+            <input
+              name="email"
+              type="email"
+              placeholder="Enter your email"
+              required
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="w-full px-4 py-3 rounded-lg bg-[#2a2445] border border-blue text-white placeholder-gray-400 focus:outline-none focus:border-green focus:ring-1 focus:ring-green transition-all"
+            />
+
+            {status === "error" && (
+              <p className="text-red-400 text-sm">{errorMsg}</p>
+            )}
+            {status === "success" && (
+              <p className="text-green-400 text-sm">Registered successfully!</p>
+            )}
+
+            <button
+              type="submit"
+              disabled={status === "loading"}
+              className="w-full bg-blue hover:bg-green disabled:opacity-70 disabled:cursor-not-allowed text-black font-bold px-8 py-3 rounded-lg transition-colors shadow-lg shadow-green-500/20"
+            >
+              {status === "loading" ? "Submitting..." : "Register Now"}
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 }
