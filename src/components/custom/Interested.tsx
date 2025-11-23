@@ -25,23 +25,23 @@ export default function Interested() {
   }
 
   return (
-    <div className="w-full px-4 py-8 m-4">
+    <div className="w-full max-[460px]:px-10 px-16 md:px-20 py-8">
       <div className="relative w-full max-w-6xl mx-auto rounded-2xl p-[1px] bg-gradient-to-br from-green to-blue overflow-auto">
         <form
           action={handleSubmit}
-          className="w-full rounded-2xl bg-black px-6 py-12 md:px-12 md:py-16 flex flex-col md:flex-row items-center justify-between gap-10"
+          className="w-full rounded-2xl bg-black px-8 min-[500px]:px-12 py-12 md:px-12 md:py-16 flex flex-col md:flex-row items-center justify-between gap-10"
         >
           <div className="flex flex-col gap-4 max-w-2xl text-center md:text-left">
-            <h2 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green to-blue">
-              Intrested for IT-Meet-2025?
+            <h2 className="text-xl sm:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green to-blue">
+              Intrested for IT-Meet 2025?
             </h2>
-            <p className="text-gray-300 text-base md:text-lg leading-relaxed">
+            <p className="text-gray-300 max-[410px]:text-sm text-base md:text-lg leading-relaxed">
               Enter your email to get exclusive news and announcements regarding
-              the annual It Meet.
+              the events of IT Meet.
             </p>
           </div>
 
-          <div className="flex flex-col gap-4 w-full md:w-auto min-w-[300px] md:min-w-[400px]">
+          <div className="flex flex-col gap-4 w-full w-auto min-[420px]:min-w-[300px] md:min-w-[380px] lg:min-w-[420px]">
             <input
               name="email"
               type="email"
@@ -64,7 +64,7 @@ export default function Interested() {
               disabled={status === "loading"}
               className="w-full bg-blue hover:bg-green disabled:opacity-70 disabled:cursor-not-allowed text-black font-bold px-8 py-3 rounded-lg transition-colors shadow-lg shadow-green-500/20"
             >
-              {status === "loading" ? "Submitting..." : "Register Now"}
+              {status === "loading" ? "Submitting..." : "Confirm"}
             </button>
           </div>
         </form>
@@ -72,4 +72,3 @@ export default function Interested() {
     </div>
   );
 }
-

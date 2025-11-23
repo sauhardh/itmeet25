@@ -60,15 +60,14 @@ export default function Navbar() {
   }, []);
 
   return (
-    <nav className="sticky top-5 z-50 flex justify-center transition-all duration-300">
+    <nav
+      className={`sticky top-0 z-50 ${isScrolled ? "pt-3" : "pt-0"} flex justify-center items-center transition-all duration-500`}
+    >
       <div
         className={`
-      flex items-center justify-between gap-10 px-12 py-4
-      rounded-2xl shadow-lg
-      backdrop-blur-lg border border-white/10
-      transition-all duration-300 
-      ${isScrolled ? "bg-[#171A23]/80" : "bg-[#171A23]/60"}
-      max-w-6xl w-full
+      flex items-center justify-between px-4 sm:px-6 lg:px-12 py-4 shadow-lg 
+      backdrop-blur-lg border border-white/10 transition-all duration-500 
+      ease-in-out      ${isScrolled ? "bg-[#171A23]/80 max-w-6xl rounded-2xl scale-[0.98]" : "bg-[#171A23]/60 rounded-none scale-100"} w-full
     `}
       >
         {/* IT Meet logo */}
@@ -112,6 +111,7 @@ export default function Navbar() {
             </div>
           ))}
         </div>
+
         {/* Follow Us Items */}
         <div className="flex items-center justify-center gap-2">
           <FollowUs socials={socialLinks} />

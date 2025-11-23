@@ -5,10 +5,17 @@ import SocialIcons from "../items/SocialIcons";
 import { socialLinks } from "@/lib/sociallinks";
 
 export default function Footer() {
+  function copyright() {
+    return (
+      <p className="text-xs md:text-sm text-gray-400">
+        Copyright © 2025 IT Meet | All rights reserved.
+      </p>
+    );
+  }
   return (
-    <div className="flex flex-col items-center py-10">
-      <div className="w-full flex justify-around items-center">
-        <div className="flex flex-col gap-12">
+    <div className="flex flex-col items-center py-20">
+      <div className="w-full flex md:flex-row flex-col justify-around md:items-center gap-16 md:pl-0 sm:pl-14 pl-10">
+        <div className="flex flex-col gap-14 py-5 ">
           <div className="flex gap-10">
             <Image
               src="/logos/kucc-logo.webp"
@@ -48,17 +55,16 @@ export default function Footer() {
             </div>
           </div>
 
-          <pre className="text-sm text-gray-400">
-            Copyright © 2025 IT Meet | All rights reserved.
-          </pre>
+          <div className="hidden md:block">{copyright()}</div>
         </div>
 
-        <div className="flex flex-col font-bold gap-7 text-lg">
+        <div className="flex flex-col py-5 font-bold gap-7 text-lg ">
           <span>Brand Guidelines</span>
           <span>Brand Assest</span>
           <span className="text-lg font-bold text-transparent bg-clip-text bg-linear-to-r from-blue to-green">
             #GeekOutInStyle
           </span>
+          <div className="block md:hidden font-normal pt-5">{copyright()}</div>
         </div>
       </div>
     </div>
