@@ -26,13 +26,13 @@ export default function Interested() {
 
   return (
     <div className="w-full max-[460px]:px-10 px-16 md:px-20 py-8">
-      <div className="relative w-full max-w-6xl mx-auto rounded-2xl p-[1px] bg-gradient-to-br from-green to-blue overflow-auto">
+      <div className="relative w-full max-w-6xl mx-auto rounded-2xl p-[1px] bg-gradient-to-br from-green to-blue overflow-auto animate-reveal-gradient">
         <form
           action={handleSubmit}
           className="w-full rounded-2xl bg-black px-8 min-[500px]:px-12 py-12 md:px-12 md:py-16 flex flex-col md:flex-row items-center justify-between gap-10"
         >
           <div className="flex flex-col gap-4 max-w-2xl text-center md:text-left">
-            <h2 className="text-xl sm:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green to-blue">
+            <h2 className="text-xl sm:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green to-blue animate-reveal-gradient">
               Intrested for IT-Meet 2025?
             </h2>
             <p className="text-gray-300 max-[410px]:text-sm text-base md:text-lg leading-relaxed">

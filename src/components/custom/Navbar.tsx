@@ -61,17 +61,17 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`sticky top-0 z-50 ${isScrolled ? "pt-3" : "pt-0"} flex justify-center items-center transition-all duration-500`}
+      className={`sticky top-0 z-50 ${isScrolled ? "pt-3 px-3 md:px-0" : "pt-0"} flex justify-center items-center transition-all duration-500`}
     >
       <div
         className={`
       flex items-center justify-between px-4 sm:px-6 lg:px-12 py-4 shadow-lg 
-      backdrop-blur-lg border border-white/10 transition-all duration-500 
-      ease-in-out      ${isScrolled ? "bg-[#171A23]/80 max-w-6xl rounded-2xl scale-[0.98]" : "bg-[#171A23]/60 rounded-none scale-100"} w-full
+      backdrop-blur-lg border border-white/10 transition-all duration-800 
+      ease-in-out ${isScrolled ? "bg-[#171A23]/80 md:max-w-6xl rounded-2xl scale-[0.98]" : "bg-[#171A23]/60 rounded-none scale-100"} w-full
     `}
       >
         {/* IT Meet logo */}
-        <ITMeetLogo />
+        <ITMeetLogo w={82.5} h={82.5} />
 
         {/*  NavItems  */}
         <div className="flex gap-5 justify-center items-center">

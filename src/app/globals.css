@@ -126,3 +126,18 @@
     @apply bg-background text-foreground;
   }
 }
+
+@keyframes revealGradient {
+  0% {
+    background-size: 200% 100%;
+    background-position: left;
+  }
+  100% {
+    background-size: 200% 100%;
+    background-position: right;
+  }
+}
+
+.animate-reveal-gradient {
+  animation: revealGradient 3s ease forwards;
+}
